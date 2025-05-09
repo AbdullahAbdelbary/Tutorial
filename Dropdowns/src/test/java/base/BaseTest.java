@@ -11,7 +11,11 @@ public class BaseTest {
 
     @BeforeSuite
     public void sdfdsf(){
-        baseDriver = new ChromeDriver();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--headless=new"); // أو --headless لو عندك إصدار قديم
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        baseDriver = new ChromeDriver(options);
         baseDriver.manage().window().maximize();
         baseDriver.get("https://www.demoblaze.com/");
     }
